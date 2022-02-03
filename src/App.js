@@ -1,8 +1,9 @@
 import "./App.css";
 import { useState } from "react";
-import { library } from "@fortawesome/free-solid-svg-icons";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-library.add(faEye);
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faEye, faEyeSlash);
 
 function App() {
   const [name, setName] = useState("");
@@ -10,14 +11,23 @@ function App() {
   const [pass, setPass] = useState("");
   const [checkPass, setCheckPass] = useState("");
   const [results, setResults] = useState(false);
+  const [showPass, setShowPass] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // console.log(event);
     if (checkPass !== pass) {
       alert("Vos deux mots de passe ne sont pas identiques !");
+    } else if (name === "" || email === "" || pass === "" || checkPass === "") {
+      alert("Il reste des champs non renseignés !");
     } else {
       setResults(true);
+    }
+  };
+
+  const togglePassword = () => {
+    {
+      !showPass ? setShowPass(true) : setShowPass(false);
     }
   };
 
@@ -50,22 +60,31 @@ function App() {
               <input
                 className={pass !== checkPass ? "red-border" : null}
                 value={pass}
-                type="password"
+                type={showPass ? "texte" : "password"}
                 placeholder="password"
                 onChange={(event) => {
                   setPass(event.target.value);
                 }}
               />
-              <FontAwesomeIcon icon="eye" />
+              <FontAwesomeIcon
+                onClick={togglePassword}
+                className="eye-icon1"
+                icon={showPass ? "eye-slash" : "eye"}
+              />
               <span>Confirm your password</span>
               <input
                 className={pass !== checkPass ? "red-border" : null}
                 value={checkPass}
-                type="password"
+                type={showPass ? "texte" : "password"}
                 placeholder="password"
                 onChange={(event) => {
                   setCheckPass(event.target.value);
                 }}
+              />
+              <FontAwesomeIcon
+                onClick={togglePassword}
+                className="eye-icon2"
+                icon={showPass ? "eye-slash" : "eye"}
               />
               <input className="register-btn" value="Register" type="submit" />
             </form>
@@ -93,6 +112,18 @@ function App() {
           </>
         ) : null}
       </div>
+      <footer>
+        <div>
+          Made with{" "}
+          <a href="https://reactjs.org/" target="_blank">
+            React
+          </a>{" "}
+          by{" "}
+          <a href="https://github.com/Julien-Allard" target="_blank">
+            Julien Allard
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
