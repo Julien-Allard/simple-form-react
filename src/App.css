@@ -1,38 +1,92 @@
 .App {
-  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input,
+button {
+  font-family: "Montserrat", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container {
+  width: 100%;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.main-container h1 {
+  font-size: 30px;
+  font-weight: 700;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form {
+  width: 100%;
+  max-width: 325px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 20px 10px;
+}
+
+form span {
+  margin-bottom: 5px;
+}
+
+form input {
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  background-color: #fcf9f9;
+  border: 2px solid rgba(0, 0, 0, 0.253);
+  outline: none;
+}
+
+.red-border {
+  border: 2px solid red;
+}
+
+.register-btn {
+  background-color: #574dcc;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+.results {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  max-width: 325px;
+}
+
+.user-info {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  max-width: 325px;
+  padding: 15px 10px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.user-info p {
+  padding: 15px 10px;
+}
+
+.edit-btn {
+  background-color: #574dcc;
+  color: #fff;
+  margin-top: 50px;
+  font-size: 17px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.253);
 }
