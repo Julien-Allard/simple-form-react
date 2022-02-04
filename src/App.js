@@ -59,7 +59,6 @@ function App() {
               <span>Password</span>
               <input
                 className={pass !== checkPass ? "red-border" : null}
-                value={pass}
                 type={showPass ? "texte" : "password"}
                 placeholder="password"
                 onChange={(event) => {
@@ -74,7 +73,6 @@ function App() {
               <span>Confirm your password</span>
               <input
                 className={pass !== checkPass ? "red-border" : null}
-                value={checkPass}
                 type={showPass ? "texte" : "password"}
                 placeholder="password"
                 onChange={(event) => {
